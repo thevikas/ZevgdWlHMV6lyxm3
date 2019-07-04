@@ -29,6 +29,13 @@ class CollectionController extends Controller
         ];
     }
 
+    public function actionReport()
+    {
+        return $this->render('report', [
+            'data' => Collection::report(),
+        ]);
+    }
+
     /**
      * Lists all Collection models.
      * @return mixed

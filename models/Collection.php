@@ -52,4 +52,19 @@ class Collection extends \yii\db\ActiveRecord
         return $this->hasOne(County::className(), ['id_county' => 'id_county']);
     }
 
+    static function report()
+    {
+        $rt = ['totalcoll' => Collection::find()->sum('amount')];
+        $states = State::find()->all();
+
+        $rt['avgtaxrate'] = round(array_reduce($states,function($carry,$item)
+        {
+            $carry+= $item->avgtaxrate;
+            return $carry;
+        })/count($states),2);
+
+        $rt['avgstatecoll'] = round($rt['totalcoll']/count($states));
+        return $rt;
+    }
+
 }
