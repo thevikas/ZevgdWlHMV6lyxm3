@@ -41,7 +41,8 @@ class State extends \yii\db\ActiveRecord
             'id_state' => 'Id State',
             'name' => 'Name',
             'totalcoll' => 'Total Tax Collection',
-            'avgrate' => 'Average Tax Collection',
+            'avgtaxrate' => 'Average Tax Rate %',
+            'avgcoll' => 'Average County Tax Collection'
         ];
     }
 
@@ -54,6 +55,17 @@ class State extends \yii\db\ActiveRecord
     public function getTotalColl()
     {
         return Collection::find()->joinWith(['county'])->where(['id_state' => $this->id_state])->sum('amount');
+    }
+
+    public function getAvgColl()
+    {
+        return Collection::find()->joinWith(['county'])->where(['id_state' => $this->id_state])->average('amount');
+    }
+
+    public function getAvgTaxRate()
+    {
+        $rt = County::find()->where(['id_state' => $this->id_state])->select('avg(taxrate) as avgtaxrate')->asArray()->one();
+        return round($rt['avgtaxrate'],2);
     }
 
 }

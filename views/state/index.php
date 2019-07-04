@@ -26,6 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_state',
             'name',
             'totalcoll',
+            'avgcoll',
+            'avgtaxrate',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

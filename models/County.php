@@ -43,6 +43,7 @@ class County extends \yii\db\ActiveRecord
             'id_county' => 'Id County',
             'name' => 'Name',
             'id_state' => 'Id State',
+            'totalcoll' => 'Total Tax Collection',
             'taxrate' => 'Tax Rate %',
         ];
     }
@@ -52,4 +53,8 @@ class County extends \yii\db\ActiveRecord
         return $this->hasOne(State::className(), ['id_state' => 'id_state']);
     }
 
+    public function getTotalColl()
+    {
+        return Collection::find()->where(['id_county' => $this->id_county])->sum('amount');
+    }
 }
