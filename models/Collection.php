@@ -54,8 +54,11 @@ class Collection extends \yii\db\ActiveRecord
 
     static function report()
     {
-        $rt = ['totalcoll' => Collection::find()->sum('amount')];
+        $rt = ['totalcoll' => Collection::find()->sum('amount'),'avgtaxrate' => 0,'avgstatecoll' => 0];
+
         $states = State::find()->all();
+        if(empty($states) || !$rt['totalcoll'])
+            return $rt;
 
         $rt['avgtaxrate'] = round(array_reduce($states,function($carry,$item)
         {
