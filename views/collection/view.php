@@ -32,7 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_coll',
             'id_county',
             'amount',
-            'taxrate',
         ],
     ]) ?>
 

@@ -17,6 +17,8 @@ use app\models\State;
 
     <?= $form->field($model, 'id_state')->dropDownList(ArrayHelper::map(State::find()->all(), 'id_state', 'name'), ['prompt' => '']) ?>
 
+    <?= $form->field($model, 'taxrate')->textInput() ?>
+
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
     </div>

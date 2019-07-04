@@ -27,7 +27,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'county.name',
             'county.state.name',
             'amount',
-            'taxrate',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

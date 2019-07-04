@@ -30,7 +30,7 @@ class Collection extends \yii\db\ActiveRecord
         return [
             [['id_county', 'amount', 'taxrate'], 'required'],
             [['id_county'], 'integer'],
-            [['amount', 'taxrate'], 'number'],
+            [['amount'], 'number'],
         ];
     }
 
@@ -42,7 +42,8 @@ class Collection extends \yii\db\ActiveRecord
         return [
             'id_county' => 'Id County',
             'amount' => 'Amount',
-            'taxrate' => 'Taxrate in %',
+            'totalcoll' => 'Total Tax Collection',
+            'avgrate' => 'Average Tax Rate',
         ];
     }
 

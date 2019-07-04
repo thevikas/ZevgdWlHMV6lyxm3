@@ -29,6 +29,7 @@ class County extends \yii\db\ActiveRecord
         return [
             [['name', 'id_state'], 'required'],
             [['id_state'], 'integer'],
+            [['taxrate'], 'number'],
             [['name'], 'string', 'max' => 255],
         ];
     }
@@ -42,6 +43,7 @@ class County extends \yii\db\ActiveRecord
             'id_county' => 'Id County',
             'name' => 'Name',
             'id_state' => 'Id State',
+            'taxrate' => 'Tax Rate %',
         ];
     }
 

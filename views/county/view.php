@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id_county',
             'name',
             'state.name',
+            'taxrate',
         ],
     ]) ?>
 
