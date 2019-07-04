@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\ArrayHelper;
+use app\models\County;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Collection */
@@ -12,7 +14,7 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id_county')->textInput() ?>
+    <?= $form->field($model, 'id_county')->dropDownList(ArrayHelper::map(County::find()->all(), 'id_county', 'name'), ['prompt' => '']) ?>
 
     <?= $form->field($model, 'amount')->textInput() ?>
 

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\County;
 
 /**
  * This is the model class for table "collection".
@@ -41,7 +42,13 @@ class Collection extends \yii\db\ActiveRecord
         return [
             'id_county' => 'Id County',
             'amount' => 'Amount',
-            'taxrate' => 'Taxrate',
+            'taxrate' => 'Taxrate in %',
         ];
     }
+
+    public function getCounty()
+    {
+        return $this->hasOne(County::className(), ['id_county' => 'id_county']);
+    }
+
 }

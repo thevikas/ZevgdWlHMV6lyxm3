@@ -24,7 +24,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id_coll',
-            'id_county',
+            'county.name',
+            'county.state.name',
             'amount',
             'taxrate',
 

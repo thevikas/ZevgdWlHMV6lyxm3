@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-
+use app\models\State;
 /**
  * This is the model class for table "county".
  *
@@ -44,4 +44,10 @@ class County extends \yii\db\ActiveRecord
             'id_state' => 'Id State',
         ];
     }
+
+    public function getState()
+    {
+        return $this->hasOne(State::className(), ['id_state' => 'id_state']);
+    }
+
 }
