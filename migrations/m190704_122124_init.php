@@ -20,8 +20,7 @@ class m190704_122124_init extends Migration
             CREATE TABLE `collection` (
             `id_coll` int(11) NOT NULL,
             `id_county` int(11) NOT NULL,
-            `amount` double NOT NULL,
-            `taxrate` float NOT NULL
+            `amount` double NOT NULL
             ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
             CREATE TABLE `county` (
